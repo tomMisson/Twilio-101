@@ -1,0 +1,23 @@
+{
+  "name": "twilio-101",
+  "version": "1.0.0",
+  "description": "Workshop: Twilio 101 - An intro to SMS and voice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomMisson/Twilio-101.git"
+  },
+  "author": "Tom Misson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomMisson/Twilio-101/issues"
+  },
+  "homepage": "https://github.com/tomMisson/Twilio-101#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "twilio": "^3.42.2"
+  }
+}
