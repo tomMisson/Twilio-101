@@ -7,7 +7,7 @@ const app = express()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.post('/sms', function (req, res) {
+app.post('/sms', (req, res) => {
 
     console.log(req.body.Body)
 
@@ -23,6 +23,10 @@ app.post('/sms', function (req, res) {
     }
     else{
     }
+})
+
+app.post('/call', (req, res) => {
+
 })
 
 app.listen(3000, () => console.log("App started on port 3000"))

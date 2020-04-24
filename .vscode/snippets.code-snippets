@@ -34,7 +34,7 @@
 
 	"Create express framework": {
 		"scope": "javascript,typescript",
-		"prefix": "express-101",
+		"prefix": "express (sms)-101",
 		"body": [
 			"",
 			"app.post('/sms', (req, res) => {",
@@ -81,5 +81,17 @@
 			"}"
 		],
 		"description": "Condition for text"
-	}
+	},
+
+	"Create express framework (call)": {
+		"scope": "javascript,typescript",
+		"prefix": "express (phone)-101",
+		"body": [
+			"",
+			"app.post('/call', (req, res) => {",
+			"",
+			"})",
+		],
+		"description": "Create express framework"
+	},
 }
