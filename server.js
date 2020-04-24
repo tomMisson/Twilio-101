@@ -1,27 +1,27 @@
 // Use dotenv to allow us to have a file that store our keys without making them publicly avalible
 require('dotenv').config();
 const express = require('express')
-const client = require('twilio')(process.env.SID, process.env.AUTH_TOKEN);
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+const bodyParser = require('body-parser')
 const app = express()
+
+app.use(bodyParser.urlencoded({ extended: false }))
 
 var today = new Date();
 var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 
-app.get('/sms', function (req, res) {
-    const twiml = new MessagingResponse();
+app.post('/sms', function (req, res) {
 
-    console.log(req.body.Body);
+    console.log(req.body.Body)
 
     if(req.body.Body === 'Whats the time?' || req.body.Body === 'time')
     {
-        twiml.message('The current time is: ' + time);
-        res.writeHead(200, {'Content-Type': 'text/xml'});
-        res.end(twiml.toString()); 
-    }
-    else{
-        twiml.message('');
+        var twiml = new MessagingResponse();
+        twiml.message(time);
         res.writeHead(200, {'Content-Type': 'text/xml'});
         res.end(twiml.toString());
+    }
+    else{
     }
 })
 
