@@ -8,15 +8,16 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 
 var today = new Date();
-var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 
 app.post('/sms', function (req, res) {
 
     console.log(req.body.Body)
 
-    if(req.body.Body === 'Whats the time?' || req.body.Body === 'time')
+    if(req.body.Body === 'Whats the time?' || req.body.Body === 'time' || req.body.Body === '⏳')
     {
         var twiml = new MessagingResponse();
+        var time = today.getHours() + ':' + today.getMinutes();
+        
         twiml.message(time);
         res.writeHead(200, {'Content-Type': 'text/xml'});
         res.end(twiml.toString());
