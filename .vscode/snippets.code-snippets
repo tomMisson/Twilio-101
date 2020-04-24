@@ -92,6 +92,28 @@
 			"",
 			"})",
 		],
-		"description": "Create express framework"
+		"description": "Create express framework for call endoint"
+	},
+
+	"import voice": {
+		"scope": "javascript,typescript",
+		"prefix": "import voice-101",
+		"body": [
+			"const VoiceResponse = require('twilio').twiml.VoiceResponse;",
+		],
+		"description": "Import voice response for Twilio 101"
+	},
+
+	"call content": {
+		"scope": "javascript,typescript",
+		"prefix": "call content-101",
+		"body": [
+			"const twiml = new VoiceResponse();",
+    		"",
+			"twiml.say('Thats all for now folks!');",
+			"res.type('text/xml');",
+			"res.send(twiml.toString());"
+		],
+		"description": "Content for the call, leaving message"
 	},
 }

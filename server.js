@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express')
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
+const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const bodyParser = require('body-parser')
 const app = express()
 
@@ -26,7 +27,11 @@ app.post('/sms', (req, res) => {
 })
 
 app.post('/call', (req, res) => {
-
+   const twiml = new VoiceResponse();
+   
+   twiml.say('Thats all for now folks!');
+   res.type('text/xml');
+   res.send(twiml.toString());  
 })
 
 app.listen(3000, () => console.log("App started on port 3000"))
